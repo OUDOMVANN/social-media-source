@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Source Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+<div class="container mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4">URL Source Generator</h1>
+    <label for="baseUrl" class="block text-lg mb-2">Paste the base URL:</label>
+    <input type="text" id="baseUrl" class="border border-gray-300 p-2 w-full rounded mb-4" placeholder="https://www.example.com" />
+
+    <div class="mb-4">
+        <div class="flex items-center mb-2">
+            <input type="text" id="urlX" class="border border-gray-300 p-2 flex-grow rounded mr-2" readonly />
+            <button onclick="copyToClipboard('urlX')" class="bg-blue-500 text-white px-4 py-2 rounded flex items-center">
+                <i class="fab fa-twitter mr-2"></i> Copy X URL
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="flex items-center mb-2">
+            <input type="text" id="urlInstagram" class="border border-gray-300 p-2 flex-grow rounded mr-2" readonly />
+            <button onclick="copyToClipboard('urlInstagram')" class="bg-pink-500 text-white px-4 py-2 rounded flex items-center">
+                <i class="fab fa-instagram mr-2"></i> Copy Instagram URL
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="flex items-center mb-2">
+            <input type="text" id="urlLinkedIn" class="border border-gray-300 p-2 flex-grow rounded mr-2" readonly />
+            <button onclick="copyToClipboard('urlLinkedIn')" class="bg-blue-600 text-white px-4 py-2 rounded flex items-center">
+                <i class="fab fa-linkedin mr-2"></i> Copy LinkedIn URL
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="flex items-center mb-2">
+            <input type="text" id="urlFacebook" class="border border-gray-300 p-2 flex-grow rounded mr-2" readonly />
+            <button onclick="copyToClipboard('urlFacebook')" class="bg-blue-700 text-white px-4 py-2 rounded flex items-center">
+                <i class="fab fa-facebook mr-2"></i> Copy Facebook URL
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="flex items-center mb-2">
+            <input type="text" id="urlTikTok" class="border border-gray-300 p-2 flex-grow rounded mr-2" readonly />
+            <button onclick="copyToClipboard('urlTikTok')" class="bg-black text-white px-4 py-2 rounded flex items-center">
+                <i class="fab fa-tiktok mr-2"></i> Copy TikTok URL
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <div class="flex items-center mb-2">
+            <input type="text" id="urlYouTube" class="border border-gray-300 p-2 flex-grow rounded mr-2" readonly />
+            <button onclick="copyToClipboard('urlYouTube')" class="bg-red-600 text-white px-4 py-2 rounded flex items-center">
+                <i class="fab fa-youtube mr-2"></i> Copy YouTube URL
+            </button>
+        </div>
+    </div>
+
+    <button onclick="generateUrls()" class="bg-green-500 text-white px-4 py-2 rounded w-full">Generate URLs</button>
+</div>
+
+<script>
+    function generateUrls() {
+        const baseUrl = document.getElementById('baseUrl').value;
+        document.getElementById('urlX').value = baseUrl + '?source=x';
+        document.getElementById('urlInstagram').value = baseUrl + '?source=instagram';
+        document.getElementById('urlLinkedIn').value = baseUrl + '?source=linkedin';
+        document.getElementById('urlFacebook').value = baseUrl + '?source=facebook';
+        document.getElementById('urlTikTok').value = baseUrl + '?source=tiktok';
+        document.getElementById('urlYouTube').value = baseUrl + '?source=youtube';
+    }
+
+    function copyToClipboard(id) {
+        const copyText = document.getElementById(id);
+        copyText.select();
+        document.execCommand("copy");
+    }
+</script>
+
+</body>
+</html>
